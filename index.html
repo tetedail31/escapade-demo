@@ -98,7 +98,7 @@
   .btn.must{color:var(--accent); width:46px; height:46px; font-size:16px}
   .hint{position:relative; z-index:2; text-align:center; color:var(--muted); font-size:12px; padding:0 20px 14px; min-height:20px}
   /* résultat */
-  .result{display:none; flex:1; min-height:0; overflow-y:auto; padding:6px 16px 24px; -webkit-overflow-scrolling:touch}
+  .result{display:none; flex:1; min-height:0; overflow-y:auto; padding:6px 16px 24px; -webkit-overflow-scrolling:touch; width:100%; max-width:760px; margin:0 auto}
   .result.on{display:block}
   body[data-view="result"] main{display:none}
   .result h3{font:600 27px/1.1 "Iowan Old Style",Palatino,Georgia,serif; margin:6px 0 4px}
@@ -408,7 +408,7 @@ function showResult(){
   const px = v => pad + (maxX===minX ? W/2-pad : (v - minX)/(maxX-minX)*(W-2*pad));
   const py = v => pad + (maxLat===minLat ? H/2-pad : (maxLat - v)/(maxLat-minLat)*(H-2*pad));
   const colors = ["#DFFF3E","#FF7A45","#7CC7FF","#FF9EC4","#5BE49B"];
-  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" height="${H}" role="img" aria-label="Carte schématique du trajet">`;
+  let svg = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="display:block;height:auto;border-radius:12px" role="img" aria-label="Carte schématique du trajet">`;
   svg += `<rect width="${W}" height="${H}" rx="12" fill="#141311"/>`;
   days.forEach((d,di) => {
     const col = colors[di % colors.length];
